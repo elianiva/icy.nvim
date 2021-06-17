@@ -4,19 +4,19 @@ local hsl = lush.hsl
 local theme = lush(function()
   local c = {
     bg         = hsl(229, 20, 11),
-    bg1        = hsl(225, 21, 7),
+    bg1        = hsl(225, 24, 7),
     bg2        = hsl(233, 16, 25),
     bg3        = hsl(225, 15, 30),
     bg4        = hsl(235, 10, 40),
 
     gray       = hsl(231, 9, 55),
-    white      = hsl(225, 12, 80),
+    white      = hsl(225, 10, 80),
 
-    red        = hsl(0, 70, 65),
+    red        = hsl(350, 50, 55),
     blue       = hsl(215, 37, 65),
     yellow     = hsl(40, 71, 73),
     orange     = hsl(14, 51, 63),
-    green      = hsl(70, 32, 63),
+    green      = hsl(92, 28, 65),
     aqua       = hsl(191, 32, 65),
     purple     = hsl(255, 33, 68),
 
@@ -28,8 +28,8 @@ local theme = lush(function()
   }
   return {
     Comment      { bg = "NONE", fg = c.gray,  gui = "italic" },
-    Normal       { bg = "NONE", fg = c.white, gui = "NONE"   },
-    CursorLine   { bg = c.bg1,  fg = "NONE",  gui = "NONE"   },
+    Normal       { bg = c.bg, fg = c.white, gui = "NONE"   },
+    CursorLine   { bg = c.bg1.li(8),  fg = "NONE",  gui = "NONE"   },
     CursorColumn { CursorLine },
     ColorColumn  { CursorLine },
     Conceal      { bg = "NONE", fg = c.blue, gui = "NONE"     },
@@ -37,10 +37,10 @@ local theme = lush(function()
     lCursor      { Cursor },
     CursorIM     { Cursor },
     Directory    { bg = "NONE",       fg = c.blue, gui = "NONE" },
-    DiffAdd      { bg = c.green_alt,  fg = "NONE", gui = "NONE" },
-    DiffChange   { bg = c.orange_alt, fg = "NONE", gui = "NONE" },
+    DiffAdd      { bg = c.blue_alt,   fg = "NONE", gui = "NONE" },
+    DiffChange   { bg = c.blue_alt,   fg = "NONE", gui = "NONE" },
     DiffDelete   { bg = c.red_alt,    fg = "NONE", gui = "NONE" },
-    DiffText     { bg = "NONE",       fg = "NONE", gui = "NONE" },
+    DiffText     { bg = c.blue_alt.li(8), fg = "NONE", gui = "NONE" },
     EndOfBuffer  { bg = "NONE",       fg = c.bg2,  gui = "NONE" },
     TermCursor   { Cursor },
     TermCursorNC { Cursor },
@@ -60,8 +60,8 @@ local theme = lush(function()
     MsgSeparator { Normal },
     MoreMsg      { bg = "NONE", fg = c.aqua, gui = "NONE" },
     NonText      { EndOfBuffer },
-    NormalFloat  { bg = c.bg2.da(55), fg = "NONE", gui = "NONE" },
-    FloatBorder  { bg = c.bg2.da(55), fg = c.gray, gui = "NONE" },
+    NormalFloat  { bg = c.bg2.da(30), fg = "NONE", gui = "NONE" },
+    FloatBorder  { bg = c.bg2.da(30), fg = c.gray, gui = "NONE" },
     NormalNC     { Normal },
     Pmenu        { bg = c.bg1,        fg = c.gray.da(20), gui = "NONE" },
     PmenuSel     { bg = c.bg2.da(50), fg = c.blue.li(20), gui = "NONE" },
@@ -83,23 +83,23 @@ local theme = lush(function()
 
     -- Non Defaults
 
-    Constant       { fg = c.purple },
+    Constant       { fg = c.red },
     String         { fg = c.green },
     Character      { Constant },
-    Number         { fg = c.purple },
-    Boolean        { fg = c.purple },
-    Float          { fg = c.purple },
+    Number         { fg = c.red },
+    Boolean        { fg = c.red },
+    Float          { fg = c.red },
 
     Identifier     { fg = c.white },
     Function       { fg = c.aqua  },
 
-    Statement      { fg = c.red  },
-    Conditional    { fg = c.red  },
-    Repeat         { fg = c.red  },
-    Label          { fg = c.red  },
+    Statement      { fg = c.purple  },
+    Conditional    { fg = c.purple  },
+    Repeat         { fg = c.purple  },
+    Label          { fg = c.purple  },
     Operator       { fg = c.aqua },
-    Keyword        { fg = c.red  },
-    Exception      { fg = c.red  },
+    Keyword        { fg = c.purple  },
+    Exception      { fg = c.purple  },
 
     PreProc        { fg = c.aqua  },
     Include        { PreProc },
@@ -205,6 +205,7 @@ local theme = lush(function()
     TSTypeBuiltin         { Type        }, -- builtin types.
     TSVariable            { bg = "NONE", fg = c.white },    -- Any variable name that does not have another highlight.
     TSVariableBuiltin     { bg = "NONE", fg = c.orange },    -- Variable names that are defined by the languages, like `this` or `self`.
+    TSWarning             { bg = "NONE", fg = c.yellow, gui = "bold" },    -- Variable names that are defined by the languages, like `this` or `self`.
 
     TSTag                 { Tag       }, -- Tags like html tag names.
     TSTagDelimiter        { Delimiter }, -- Tag delimiter like `<` `>` `/`
@@ -230,11 +231,15 @@ local theme = lush(function()
     NvimTreeFolderIcon          { fg = c.aqua },
     NvimTreeIndentMarker        { fg = c.gray },
     NvimTreeNormal              { fg = c.white.da(5), bg = c.bg1 },
+    NvimTreeCursorLine          { fg = "NONE", bg = c.bg },
     NvimTreeVertSplit           { fg = c.bg1, bg = c.bg1 },
     NvimTreeFolderName          { fg = c.aqua, gui = "bold" },
-    NvimTreeOpenedFolderName    { fg = c.aqua.da(10), gui = "bold" },
     NvimTreeRootFolder          { fg = c.blue.da(20) },
     NvimTreeExecFile            { fg = c.blue },
+    NvimTreeImageFile           { fg = c.purple },
+    NvimTreeSpecialFile         { fg = c.aqua },
+    NvimTreeOpenedFolderName    { fg = c.aqua.da(10), gui = "bold" },
+    NvimTreeOpenedFile          { NvimTreeOpenedFolderName },
 
     -- some fix for html related stuff
     htmlH1                  { Title },
@@ -244,6 +249,7 @@ local theme = lush(function()
     mkdLineBreak              { bg = "NONE", fg = "NONE", gui = "NONE" },
     mkdHeading                { fg = c.white },
     mkdInlineURL              { mkdLink },
+    mkdUnderline              { fg = c.gray },
     markdownUrl               { mkdLink },
     markdownCode              { fg = c.orange, bg = "NONE" },
     markdownLinkTextDelimiter { Delimiter },
