@@ -12,7 +12,7 @@ local theme = lush(function()
     gray       = hsl(231, 9, 55),
     white      = hsl(225, 10, 80),
 
-    red        = hsl(350, 50, 55),
+    red        = hsl(0, 70, 65),
     blue       = hsl(215, 37, 65),
     yellow     = hsl(40, 71, 73),
     orange     = hsl(14, 51, 63),
@@ -83,12 +83,12 @@ local theme = lush(function()
 
     -- Non Defaults
 
-    Constant       { fg = c.red },
+    Constant       { fg = c.orange },
     String         { fg = c.green },
     Character      { Constant },
-    Number         { fg = c.red },
-    Boolean        { fg = c.red },
-    Float          { fg = c.red },
+    Number         { fg = c.orange },
+    Boolean        { fg = c.orange },
+    Float          { fg = c.orange },
 
     Identifier     { fg = c.white },
     Function       { fg = c.aqua  },
