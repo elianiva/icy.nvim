@@ -231,7 +231,6 @@ local theme = lush(function()
     NvimTreeFolderIcon          { fg = c.aqua },
     NvimTreeIndentMarker        { fg = c.gray },
     NvimTreeNormal              { fg = c.white.da(5), bg = c.bg1 },
-    NvimTreeCursorLine          { fg = "NONE", bg = c.bg },
     NvimTreeVertSplit           { fg = c.bg1, bg = c.bg1 },
     NvimTreeFolderName          { fg = c.aqua, gui = "bold" },
     NvimTreeRootFolder          { fg = c.blue.da(20) },
@@ -278,17 +277,19 @@ local theme = lush(function()
     -- lsp-trouble.nvim
     LspTroubleIndent    { fg = c.bg4.li(10) },
 
-    -- bufferline diagnostic
+    -- tabline stuff
     TabLine               { bg = c.bg1, fg = c.white, gui = "NONE" },
     TabLineFill           { bg = c.bg1, fg = c.white, gui = "NONE" },
-    TabLineSel            { bg = c.bg1, fg = c.blue,  gui = "NONE" },
+    TabLineSel            { bg = c.blue, fg = c.bg1,  gui = "NONE" },
+
+    -- tabline diagnostic
     TabLineError          { LspDiagnosticsSignError },
     TabLineWarning        { LspDiagnosticsSignWarning },
     TabLineHint           { LspDiagnosticsSignHint },
     TabLineInformation    { LspDiagnosticsSignInformation },
 
     -- which-key.nvim
-    WhichKeyFloat       { Normal },
+    WhichKeyFloat       { bg = c.bg1 },
 
     -- nvim-compe
     CompeDocumentation  { Pmenu, fg = "NONE" },
