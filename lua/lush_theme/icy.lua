@@ -232,13 +232,15 @@ local theme = lush(function()
     NvimTreeIndentMarker        { fg = c.gray },
     NvimTreeNormal              { fg = c.white.da(5), bg = c.bg1 },
     NvimTreeVertSplit           { fg = c.bg1, bg = c.bg1 },
-    NvimTreeFolderName          { fg = c.aqua, gui = "bold" },
+    NvimTreeFolderName          { fg = c.blue },
+    NvimTreeOpenedFolderName    { fg = c.aqua.da(10), gui = "italic" },
+    NvimTreeOpenedFile          { NvimTreeOpenedFolderName },
     NvimTreeRootFolder          { fg = c.blue.da(20) },
     NvimTreeExecFile            { fg = c.blue },
     NvimTreeImageFile           { fg = c.purple },
     NvimTreeSpecialFile         { fg = c.aqua },
-    NvimTreeOpenedFolderName    { fg = c.aqua.da(10), gui = "bold" },
-    NvimTreeOpenedFile          { NvimTreeOpenedFolderName },
+    NvimTreeGitStaged           { fg = c.green },
+    NvimTreeGitRenamed          { fg = c.orange },
 
     -- some fix for html related stuff
     htmlH1                  { Title },
@@ -293,6 +295,16 @@ local theme = lush(function()
 
     -- nvim-compe
     CompeDocumentation  { Pmenu, fg = "NONE" },
+
+    -- diffview
+    DiffviewNormal              { NvimTreeNormal },
+    DiffviewVertSplit           { fg = c.bg, bg = c.bg },
+    DiffviewStatusAdded         { SignAdd },
+    DiffviewStatusModified      { SignChange },
+    DiffviewStatusRenamed       { SignChange },
+    DiffviewStatusDeleted       { SignDelete },
+    DiffviewFilePanelInsertion  { SignAdd },
+    DiffviewFilePanelDeletion   { SignDelete },
   }
 end)
 
