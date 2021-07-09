@@ -132,9 +132,10 @@ local theme = lush(function()
     -- use these groups, or use their own. Consult your LSP client's
     -- documentation.
 
-    LspReferenceText                     { bg = c.bg1, fg = "NONE", gui = "underline" },
-    LspReferenceRead                     { bg = c.bg1, fg = "NONE", gui = "underline" },
-    LspReferenceWrite                    { bg = c.bg1, fg = "NONE", gui = "underline" },
+    LspReferenceText                     { Visual, fg = "NONE", gui = "underline" },
+    LspReferenceRead                     { Visual, fg = "NONE", gui = "underline" },
+    LspReferenceWrite                    { Visual, fg = "NONE", gui = "underline" },
+    LspSignatureActiveParameter          { Visual, fg = c.purple, gui = "underline" },
 
     LspDiagnosticsDefaultError           { bg = "NONE", fg = c.red,    gui = "underline" },
     LspDiagnosticsDefaultWarning         { bg = "NONE", fg = c.yellow, gui = "underline" },
@@ -205,7 +206,8 @@ local theme = lush(function()
     TSTypeBuiltin         { Type        }, -- builtin types.
     TSVariable            { bg = "NONE", fg = c.white },    -- Any variable name that does not have another highlight.
     TSVariableBuiltin     { bg = "NONE", fg = c.orange },    -- Variable names that are defined by the languages, like `this` or `self`.
-    TSWarning             { bg = "NONE", fg = c.yellow, gui = "bold" },    -- Variable names that are defined by the languages, like `this` or `self`.
+    TSWarning             { bg = "NONE", fg = c.red, gui = "bold" },    -- todo highlight
+    TSDanger              { bg = "NONE", fg = c.red, gui = "bold" },    -- todo highlight
 
     TSTag                 { Tag       }, -- Tags like html tag names.
     TSTagDelimiter        { Delimiter }, -- Tag delimiter like `<` `>` `/`
@@ -231,7 +233,7 @@ local theme = lush(function()
     NvimTreeFolderIcon          { fg = c.aqua },
     NvimTreeIndentMarker        { fg = c.gray },
     NvimTreeNormal              { fg = c.white.da(5), bg = c.bg1 },
-    NvimTreeVertSplit           { fg = c.bg1, bg = c.bg1 },
+    NvimTreeVertSplit           { fg = c.bg, bg = c.bg},
     NvimTreeFolderName          { fg = c.blue },
     NvimTreeOpenedFolderName    { fg = c.aqua.da(10), gui = "italic" },
     NvimTreeOpenedFile          { NvimTreeOpenedFolderName },
