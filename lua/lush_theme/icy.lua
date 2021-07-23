@@ -135,7 +135,10 @@ local theme = lush(function()
     LspReferenceText                     { Visual, fg = "NONE", gui = "underline" },
     LspReferenceRead                     { Visual, fg = "NONE", gui = "underline" },
     LspReferenceWrite                    { Visual, fg = "NONE", gui = "underline" },
-    LspSignatureActiveParameter          { Visual, fg = c.purple, gui = "underline" },
+    LspSignatureActiveParameter          { Visual, fg = c.purple, gui = "underline,bold" },
+
+    LspCodeLens { fg = Comment.fg.li(20) },
+    LspCodeLensSeparator { fg = Comment.fg.li(20) },
 
     LspDiagnosticsDefaultError           { bg = "NONE", fg = c.red,    gui = "underline" },
     LspDiagnosticsDefaultWarning         { bg = "NONE", fg = c.yellow, gui = "underline" },
@@ -252,7 +255,7 @@ local theme = lush(function()
     mkdLineBreak              { bg = "NONE", fg = "NONE", gui = "NONE" },
     mkdHeading                { fg = c.white },
     mkdInlineURL              { mkdLink },
-    mkdUnderline              { fg = c.gray },
+    mkdEscape                 { Delimiter },
     markdownUrl               { mkdLink },
     markdownCode              { fg = c.orange, bg = "NONE" },
     markdownLinkTextDelimiter { Delimiter },
