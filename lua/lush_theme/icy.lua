@@ -299,7 +299,8 @@ local theme = lush(function()
     WhichKeyFloat       { bg = c.bg1 },
 
     -- nvim-compe
-    CompeDocumentation  { Pmenu, fg = "NONE" },
+    CmpDocumentation        { Pmenu, fg = "NONE" },
+    CmpDocumentationBorder  { Pmenu, fg = "NONE" },
 
     -- diffview
     DiffviewNormal              { NvimTreeNormal },
