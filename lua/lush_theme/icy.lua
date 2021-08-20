@@ -311,6 +311,18 @@ local theme = lush(function()
     DiffviewStatusDeleted       { SignDelete },
     DiffviewFilePanelInsertion  { SignAdd },
     DiffviewFilePanelDeletion   { SignDelete },
+
+    -- nvim-notify
+    NotifyERROR      { fg = c.red    },
+    NotifyWARN       { fg = c.orange },
+    NotifyINFO       { fg = c.green  },
+    NotifyDEBUG      { fg = c.blue   },
+    NotifyTRACE      { fg = c.white  },
+    NotifyERRORTitle { fg = c.red  },
+    NotifyWARNTitle  { fg = c.orange  },
+    NotifyINFOTitle  { fg = c.green  },
+    NotifyDEBUGTitle { fg = c.blue  },
+    NotifyTRACETitle { fg = c.white  },
   }
 end)
 
