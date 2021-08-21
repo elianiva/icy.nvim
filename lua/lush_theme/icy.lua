@@ -323,6 +323,12 @@ local theme = lush(function()
     NotifyINFOTitle  { fg = c.green  },
     NotifyDEBUGTitle { fg = c.blue  },
     NotifyTRACETitle { fg = c.white  },
+
+    -- HOP
+    HopNextKey { fg = "#ff007c" },
+    HopNextKey1 { fg = "#00dfff" },
+    HopNextKey2 { fg = "#2b8db3" },
+    HopUnmatched { fg = c.bg3 },
   }
 end)
 
