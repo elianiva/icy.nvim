@@ -268,18 +268,9 @@ local theme = lush(function()
     FlutterWidgetGuides     { fg = c.bg4.li(10) },
 
     -- statusline
-    StatusLine          { bg = c.bg1, fg = c.white },
-    StatusLineNC        { bg = c.bg1, fg = c.gray },
-    StatusLineMode      { bg = c.bg4, fg = c.bg, gui = "bold" },
-    StatusLineDeco      { bg = c.bg2, fg = c.yellow },
-    StatusLineLCol      { bg = c.bg2, fg = c.white },
-    StatusLineLColAlt   { bg = c.bg1, fg = c.white },
-    StatusLineFT        { bg = c.bg2, fg = c.white },
-    StatusLineFTAlt     { bg = c.bg2, fg = c.white },
-    StatusLineGit       { bg = c.bg4, fg = c.bg },
-    StatusLineGitAlt    { bg = c.bg4, fg = c.bg },
-    StatusLineLSP       { bg = c.bg1, fg = c.gray.li(25) },
-    StatusLineFileName  { bg = c.bg1, fg = c.white, gui = "bold" },
+    StatusLine          { bg = c.bg1.li(12), fg = c.gray.li(15) },
+    StatusLineAccent    { StatusLine, fg = c.white },
+    StatusLineNC        { bg = c.bg1.li(5), fg = c.gray },
 
     -- lsp-trouble.nvim
     LspTroubleIndent    { fg = c.bg4.li(10) },
